@@ -6,9 +6,8 @@ import java.io.IOException;
 public class DemoClientApplication {
 
     public static void main(String[] args) throws IOException {
-        try(ClientService service = new ClientService()) {
-            service.sendRequestsWithLimiter();
-        }
+        ClientService service = new ClientService();
+        service.sendRequestsWithLimiter();
     }
 
 

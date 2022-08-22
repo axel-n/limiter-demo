@@ -7,11 +7,11 @@ import io.github.axel_n.limiter.sliding_window.LimiterSlidingWindow;
 import java.io.Closeable;
 import java.time.Duration;
 
-public class ClientService implements Closeable {
+public class ClientService {
 
    private final SimpleWebClient webClient = new SimpleWebClient("localhost", 8080);
 
-   private final LimiterSlidingWindow limiter;
+   private final LimiterSlidingWindow<Void> limiter;
 
     public ClientService() {
         LimiterConfig limiterConfig = new LimiterConfigBuilder()
@@ -19,7 +19,7 @@ public class ClientService implements Closeable {
                 .setInterval(Duration.ofSeconds(1))
                 .build();
 
-        limiter = new LimiterSlidingWindow(limiterConfig);
+        limiter = new LimiterSlidingWindow<>(limiterConfig);
     }
 
     public void sendRequestsWithLimiter() throws JsonProcessingException {
@@ -29,9 +29,5 @@ public class ClientService implements Closeable {
                 limiter.writeHistory();
             }
         }
-    }
-
-    public void close() {
-        limiter.close();
     }
 }
