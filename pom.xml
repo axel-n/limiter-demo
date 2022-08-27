@@ -13,7 +13,6 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
-        <limiter-sliding-window.version>0.1</limiter-sliding-window.version>
         <spring-web.version>5.3.22</spring-web.version>
         <jackson.version>2.13.3</jackson.version>
     </properties>
