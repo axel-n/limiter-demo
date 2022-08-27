@@ -20,5 +20,6 @@
     <modules>
         <module>demo_server</module>
         <module>demo_client</module>
+        <module>demo_client_spring_boot</module>
     </modules>
 </project>
